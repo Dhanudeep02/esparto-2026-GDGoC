@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESPARTO 2026 | Agentic AI Workshop & Hackathon | GDGoC HITAM</title>
+  <meta name="description" content="ESPARTO 2026 - Agentic AI Workshop and Hackathon organized by Google Developer Groups on Campus - HITAM (GDGoC HITAM). Two-day premier technical event on 9-10 October 2026. Total prize pool ₹10,000.">
+  <meta name="keywords" content="ESPARTO 2026, GDG HITAM, Google Developer Groups, Agentic AI, AI Workshop, AI Hackathon, HITAM College, Technical Fest 2026">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="ESPARTO 2026 - Agentic AI Workshop & Hackathon">
+  <meta property="og:description" content="Join GDGoC HITAM on 9-10 October 2026 for a hands-on Agentic AI workshop and a 24h hackathon with ₹10,000 in prizes.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#4285F4">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/gdg-hitam-logo-transparent.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Top Google Brand Color Ribbon -->
+  <div class="google-ribbon" aria-hidden="true">
+    <span class="ribbon-blue"></span>
+    <span class="ribbon-red"></span>
+    <span class="ribbon-yellow"></span>
+    <span class="ribbon-green"></span>
+  </div>
+
+  <!-- Ambient Animated Background Canvas -->
+  <canvas id="ambient-canvas" class="ambient-canvas"></canvas>
+
+  <!-- Interactive Announcement Banner -->
+  <div class="announcement-banner">
+    <div class="banner-inner container">
+      <span class="pill-tag"><span class="pulse-dot"></span> REGISTRATIONS OPEN</span>
+      <p class="banner-text">
+        <strong>ESPARTO 2026</strong> • Part of Technical Fest 2026 • <strong>9 &amp; 10 October 2026</strong> • Activity Block HITAM
+      </p>
+      <div class="banner-cta">
+        <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="banner-link" id="banner-register-link">Register Now (₹150) &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Header & Navbar -->
+  <header class="site-header" id="site-header">
+    <div class="header-container container">
+      <!-- Logo Branding -->
+      <a href="#" class="brand-link" id="brand-home-link" aria-label="GDGoC HITAM Home">
+        <div class="logo-wrapper">
+          <img src="assets/gdg-hitam-logo-transparent.png" alt="GDG HITAM Logo" class="brand-logo-img">
+          <div class="logo-glow"></div>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">Google Developer Groups</div>
+          <div class="brand-subtitle"><span class="badge-campus">On-Campus</span> • HITAM</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#overview" class="nav-item">Overview</a></li>
+          <li><a href="#day1-workshop" class="nav-item">Day 1 Workshop</a></li>
+          <li><a href="#day2-hackathon" class="nav-item">Day 2 Hackathon</a></li>
+          <li><a href="#prizes" class="nav-item">Prize Pool</a></li>
+          <li><a href="#why-join" class="nav-item">Why Join</a></li>
+          <li><a href="#venue" class="nav-item">Venue</a></li>
+          <li><a href="#coordinators" class="nav-item">Coordinators</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Controls: Theme, Register -->
+      <div class="header-actions">
+        <!-- Theme Switcher (Dark / Light Theme) -->
+        <button class="icon-btn" id="theme-toggle-btn" title="Switch Light/Dark Theme" aria-label="Toggle theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+
+        <!-- Primary CTA: Direct Official Registration Link -->
+        <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="btn btn-google-gradient btn-sm" id="nav-register-btn">
+          <span>Register (₹150)</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <ul class="mobile-nav-list">
+        <li><a href="#overview" class="mobile-nav-link">Event Overview</a></li>
+        <li><a href="#day1-workshop" class="mobile-nav-link">Day 1 Workshop</a></li>
+        <li><a href="#day2-hackathon" class="mobile-nav-link">Day 2 Hackathon</a></li>
+        <li><a href="#prizes" class="mobile-nav-link">Prizes (₹10,000)</a></li>
+        <li><a href="#why-join" class="mobile-nav-link">Why Participate</a></li>
+        <li><a href="#venue" class="mobile-nav-link">Venue &amp; Organizers</a></li>
+        <li><a href="#coordinators" class="mobile-nav-link">Event Coordinators</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="btn btn-google-gradient btn-full" id="mobile-register-btn">
+          🎟️ Register Now (₹150)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- BROCHURE FLIP BOOKLET CONTAINER (Active when in Brochure View mode)        -->
+  <!-- ========================================================================= -->
+  <section class="brochure-reader-wrapper" id="brochure-reader-wrapper" style="display: none;">
+    <div class="container reader-container">
+      <div class="reader-toolbar">
+        <div class="reader-tabs" role="tablist">
+          <button class="reader-tab active" data-page="0">Cover Fold</button>
+          <button class="reader-tab" data-page="1">Day 1: Workshop</button>
+          <button class="reader-tab" data-page="2">Day 2: Hackathon</button>
+          <button class="reader-tab" data-page="3">Prizes &amp; Community</button>
+          <button class="reader-tab" data-page="4">Venue &amp; Pass</button>
+        </div>
+        <div class="reader-nav-arrows">
+          <button class="reader-arrow" id="reader-prev-btn" title="Previous Page" aria-label="Previous Page">&#8592; Prev</button>
+          <span class="page-indicator" id="reader-page-indicator">Panel 1 of 5</span>
+          <button class="reader-arrow" id="reader-next-btn" title="Next Page" aria-label="Next Page">Next &#8594;</button>
+        </div>
+      </div>
+
+      <!-- The 3D Folded Brochure Book Structure -->
+      <div class="brochure-book" id="brochure-book">
+        
+        <!-- PANEL 0: Brochure Cover Fold -->
+        <article class="brochure-panel active" id="b-panel-0">
+          <div class="panel-inner cover-panel-inner">
+            <div class="brochure-fold-crease"></div>
+            <div class="panel-header-badge">
+              <span class="google-badge-pill">
+                <span class="g-dot g-blue"></span>
+                <span class="g-dot g-red"></span>
+                <span class="g-dot g-yellow"></span>
+                <span class="g-dot g-green"></span>
+                Google Developer Groups on Campus – HITAM
+              </span>
+              <span class="edition-tag">TECHNICAL FEST 2026 EDITION</span>
+            </div>
+
+            <div class="cover-hero-content">
+              <div class="cover-logo-area">
+                <img src="assets/gdg-hitam-logo.png" alt="GDGoC HITAM Logo" class="cover-brochure-logo">
+                <div class="cover-stamp">OFFICIAL BROCHURE</div>
+              </div>
+              <h1 class="cover-title">ESPARTO 2026</h1>
+              <h2 class="cover-subtitle">Agentic AI Workshop &amp; Hackathon</h2>
+              
+              <div class="cover-motto">
+                <span class="motto-tag">THINK</span>
+                <span class="motto-sep">•</span>
+                <span class="motto-tag">BUILD</span>
+                <span class="motto-sep">•</span>
+                <span class="motto-tag">AUTOMATE</span>
+              </div>
+              <p class="cover-tagline">Learn Agentic AI. Build Intelligent Agents. Solve Real Problems.</p>
+
+              <!-- Quick Highlights Grid -->
+              <div class="cover-highlights-grid">
+                <div class="highlight-item blue-border">
+                  <span class="h-icon">📅</span>
+                  <div>
+                    <strong>Dates</strong>
+                    <p>9 &amp; 10 October 2026</p>
+                  </div>
+                </div>
+                <div class="highlight-item red-border">
+                  <span class="h-icon">🏆</span>
+                  <div>
+                    <strong>Prize Pool</strong>
+                    <p>₹10,000 Cash Prizes</p>
+                  </div>
+                </div>
+                <div class="highlight-item yellow-border">
+                  <span class="h-icon">📍</span>
+                  <div>
+                    <strong>Venue</strong>
+                    <p>Activity Block, HITAM</p>
+                  </div>
+                </div>
+                <div class="highlight-item green-border">
+                  <span class="h-icon">🎟️</span>
+                  <div>
+                    <strong>Entry Fee</strong>
+                    <p>₹150 / Participant</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cover-actions">
+                <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="btn btn-google-gradient">
+                  <span>Register Now (₹150)</span>
+                </a>
+                <button class="btn btn-outline" id="cover-explore-btn">
+                  <span>Open Day 1 Workshop &rarr;</span>
+                </button>
+              </div>
+            </div>
+            <div class="panel-footer-meta">
+              <span>ESPARTO 2026 • Google Developer Groups On-Campus HITAM</span>
+              <span>Panel 1 / 5</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- PANEL 1: Day 1 - Agentic AI Workshop -->
+        <article class="brochure-panel" id="b-panel-1">
+          <div class="panel-inner">
+            <div class="brochure-fold-crease"></div>
+            <div class="panel-header-band blue-band">
+              <div class="band-tag">DAY 1 — 9 OCTOBER 2026</div>
+              <h2 class="panel-heading">AGENTIC AI INTERACTIVE WORKSHOP</h2>
+              <p class="panel-subheading">From Theory to Autonomous Multi-Step Agentic Systems</p>
+            </div>
+
+            <div class="panel-content-body">
+              <div class="brochure-concept-box">
+                <h3 class="box-title"><span class="badge-num blue">01</span> Event Concept</h3>
+                <p>The Agentic AI Workshop is an interactive, hands-on session designed to introduce students to the fundamentals of Agentic AI and demonstrate how AI agents can be designed to perform tasks with <strong>minimal human intervention</strong>.</p>
+                <p>Participants will understand the concepts behind AI agents, how they differ from conventional AI applications, and how agents can <strong>use tools, reason through tasks, and execute multi-step workflows</strong>.</p>
+                <p>The workshop goes beyond theoretical concepts by allowing students to build and experiment with their own AI agents capable of performing practical tasks. At <strong>3:00 PM</strong>, participants receive the problem statement for the hackathon!</p>
+              </div>
+
+              <div class="brochure-details-table-wrapper">
+                <h4 class="table-title">Workshop Particulars</h4>
+                <table class="brochure-table">
+                  <tbody>
+                    <tr><td><strong>Date</strong></td><td>9 October 2026</td></tr>
+                    <tr><td><strong>Duration</strong></td><td>9:30 AM to 3:00 PM</td></tr>
+                    <tr><td><strong>Participation</strong></td><td>Individual registration; teams formed for hackathon</td></tr>
+                    <tr><td><strong>Registration Fee</strong></td><td><span class="price-pill">₹150 per participant</span></td></tr>
+                    <tr><td><strong>Venue</strong></td><td>Activity Block – Second/Third Floor Classroom</td></tr>
+                    <tr><td><strong>Guest</strong></td><td>One Guest Speaker / Mentor (Industry AI Specialist)</td></tr>
+                    <tr><td><strong>Mode</strong></td><td>Interactive &amp; Hands-on Coding</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="focus-areas-container">
+                <h4 class="focus-title">Key Focus Areas</h4>
+                <ul class="focus-bullet-list">
+                  <li><span class="bullet-dot blue"></span> Fundamentals of Artificial Intelligence and Agentic AI</li>
+                  <li><span class="bullet-dot red"></span> Understanding AI Agents and Agentic Workflows</li>
+                  <li><span class="bullet-dot yellow"></span> How AI agents perform tasks autonomously</li>
+                  <li><span class="bullet-dot green"></span> Tool usage, function calling, and task execution</li>
+                  <li><span class="bullet-dot blue"></span> Building practical AI agents from scratch</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="panel-footer-meta">
+              <button class="btn-text" id="p1-prev-btn">&larr; Back to Cover</button>
+              <span>ESPARTO 2026 • GDGoC HITAM</span>
+              <button class="btn-text" id="p1-next-btn">Day 2 Hackathon &rarr;</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PANEL 2: Day 2 - Agentic AI Hackathon -->
+        <article class="brochure-panel" id="b-panel-2">
+          <div class="panel-inner">
+            <div class="brochure-fold-crease"></div>
+            <div class="panel-header-band green-band">
+              <div class="band-tag">DAY 2 — 9 &amp; 10 OCTOBER 2026</div>
+              <h2 class="panel-heading">AGENTIC AI HACKATHON</h2>
+              <p class="panel-subheading">24-Hour Build Sprint • Transform Ideas Into Autonomous Solutions</p>
+            </div>
+
+            <div class="panel-content-body">
+              <div class="brochure-concept-box">
+                <h3 class="box-title"><span class="badge-num green">02</span> Hackathon Concept</h3>
+                <p>The Agentic AI Hackathon provides participants with an opportunity to apply the concepts and skills gained during the workshop to solve a given real-world problem statement using Agentic AI.</p>
+                <div class="team-badge-pill">
+                  <span>👥 Team Size: <strong>2 – 4 Members</strong></span>
+                  <span>⚡ Individual registrations can form teams during workshop</span>
+                </div>
+              </div>
+
+              <div class="hackathon-timeline-brochure">
+                <h4 class="table-title">Official Hackathon Timeline</h4>
+                <div class="timeline-stepper">
+                  <div class="t-step">
+                    <div class="t-badge yellow">3:00 PM – 4:00 PM (Day 1)</div>
+                    <div class="t-info">
+                      <strong>Problem Statement Release</strong>
+                      <p>Challenge unveiled right after the workshop concludes. Brainstorming begins.</p>
+                    </div>
+                  </div>
+                  <div class="t-step">
+                    <div class="t-badge blue">3:00 PM (Day 1) – 12:00 PM (Day 2)</div>
+                    <div class="t-info">
+                      <strong>Development &amp; Solution Building</strong>
+                      <p>Teams build Agentic workflows, integrate tools, and implement autonomous agents.</p>
+                    </div>
+                  </div>
+                  <div class="t-step">
+                    <div class="t-badge red">12:00 PM, 10th October 2026</div>
+                    <div class="t-info">
+                      <strong>Final Project Submission Deadline</strong>
+                      <p>Code repository, demo video/presentation, and agent architecture submitted.</p>
+                    </div>
+                  </div>
+                  <div class="t-step">
+                    <div class="t-badge green">12:00 PM – 1:30 PM, 10th October</div>
+                    <div class="t-info">
+                      <strong>Jury Evaluation &amp; Live Demos</strong>
+                      <p>Teams present functioning agents to industry mentors and judges.</p>
+                    </div>
+                  </div>
+                  <div class="t-step">
+                    <div class="t-badge gold">2:30 PM – 3:30 PM, 10th October</div>
+                    <div class="t-info">
+                      <strong>Results &amp; Recognition Ceremony</strong>
+                      <p>Winners announced, trophy distribution, and closing remarks.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="focus-areas-container">
+                <h4 class="focus-title">Hackathon Evaluation Focus Areas</h4>
+                <div class="four-grid">
+                  <div class="four-card">
+                    <div class="four-icon">🤖</div>
+                    <strong>Agentic AI Implementation</strong>
+                    <p>Depth of agent architecture, reasoning loops, memory.</p>
+                  </div>
+                  <div class="four-card">
+                    <div class="four-icon">💡</div>
+                    <strong>Problem-Solving</strong>
+                    <p>How effectively the agent addresses the core challenge.</p>
+                  </div>
+                  <div class="four-card">
+                    <div class="four-icon">⚙️</div>
+                    <strong>AI Agent Development</strong>
+                    <p>Tool usage, external API integrations, robust error recovery.</p>
+                  </div>
+                  <div class="four-card">
+                    <div class="four-icon">🚀</div>
+                    <strong>Practical Application</strong>
+                    <p>Real-world viability, usability, and impact.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-footer-meta">
+              <button class="btn-text" id="p2-prev-btn">&larr; Day 1 Workshop</button>
+              <span>ESPARTO 2026 • GDGoC HITAM</span>
+              <button class="btn-text" id="p2-next-btn">Prizes &amp; Community &rarr;</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PANEL 3: Prizes & Why Participate -->
+        <article class="brochure-panel" id="b-panel-3">
+          <div class="panel-inner">
+            <div class="brochure-fold-crease"></div>
+            <div class="panel-header-band yellow-band">
+              <div class="band-tag">PRIZES &amp; BENEFITS</div>
+              <h2 class="panel-heading">TOTAL PRIZE POOL: ₹10,000/-</h2>
+              <p class="panel-subheading">Rewarding Excellence, Innovation, and Practical Mastery</p>
+            </div>
+
+            <div class="panel-content-body">
+              <div class="brochure-prizes-showcase">
+                <div class="prize-card-brochure silver">
+                  <div class="trophy-badge">🥈 2nd Place</div>
+                  <div class="prize-amount">₹2,000</div>
+                  <p class="prize-sub">Runner-Up Cash Award + Certificate of Excellence</p>
+                </div>
+                <div class="prize-card-brochure gold highlight-gold">
+                  <div class="trophy-badge">🥇 1st Place</div>
+                  <div class="prize-amount">₹3,000</div>
+                  <p class="prize-sub">Winner Cash Award + Champion Trophy + GDG Mentorship</p>
+                </div>
+                <div class="prize-card-brochure bronze">
+                  <div class="trophy-badge">🥉 3rd Place</div>
+                  <div class="prize-amount">₹1,000</div>
+                  <p class="prize-sub">2nd Runner-Up Cash Award + Certificate of Merit</p>
+                </div>
+              </div>
+              <div class="additional-pool-note">
+                <span class="star-pill">⭐ Plus Special Category Awards, Goodies &amp; GDGoC Swag</span>
+              </div>
+
+              <!-- Why Participate Checklist -->
+              <div class="why-box-brochure">
+                <h3 class="box-title">Why Participate in ESPARTO 2026?</h3>
+                <div class="why-grid-2col">
+                  <div class="why-check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Learn the fundamentals of Agentic AI directly from mentors.</span>
+                  </div>
+                  <div class="why-check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Build and experiment with fully functional AI agents.</span>
+                  </div>
+                  <div class="why-check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Gain hands-on experience with cutting-edge emerging AI tech.</span>
+                  </div>
+                  <div class="why-check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Apply workshop concepts directly to an industry problem statement.</span>
+                  </div>
+                  <div class="why-check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Work collaboratively in teams of 2–4 passionate peers.</span>
+                  </div>
+                  <div class="why-check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Build, polish, and present an AI-based solution to jury.</span>
+                  </div>
+                  <div class="why-check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Compete for the ₹10,000 total prize pool.</span>
+                  </div>
+                  <div class="why-check-item">
+                    <span class="check-icon">✓</span>
+                    <span>Showcase your technical capabilities and creativity on your resume.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Organizers note -->
+              <div class="organizer-brochure-card">
+                <img src="assets/gdg-hitam-logo-transparent.png" alt="GDGoC HITAM" class="mini-org-logo">
+                <div>
+                  <strong>Google Developer Groups on Campus – HITAM</strong>
+                  <p>A thriving student developer community creating opportunities for students to learn, experiment, and build using modern technologies beyond the classroom.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-footer-meta">
+              <button class="btn-text" id="p3-prev-btn">&larr; Day 2 Hackathon</button>
+              <span>ESPARTO 2026 • GDGoC HITAM</span>
+              <button class="btn-text" id="p3-next-btn">Venue &amp; Pass &rarr;</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PANEL 4: Venue, Important Details & Registration -->
+        <article class="brochure-panel" id="b-panel-4">
+          <div class="panel-inner">
+            <div class="brochure-fold-crease"></div>
+            <div class="panel-header-band red-band">
+              <div class="band-tag">EVENT ESSENTIALS &amp; PASS</div>
+              <h2 class="panel-heading">VENUE &amp; REGISTRATION</h2>
+              <p class="panel-subheading">Activity Block • Hyderabad Institute of Technology and Management</p>
+            </div>
+
+            <div class="panel-content-body">
+              <div class="venue-split-grid">
+                <div class="venue-info-card">
+                  <h3 class="box-title">📍 Venue Details</h3>
+                  <div class="detail-row">
+                    <strong>Campus:</strong>
+                    <span>HITAM (Hyderabad Institute of Technology and Management)</span>
+                  </div>
+                  <div class="detail-row">
+                    <strong>Building:</strong>
+                    <span>Activity Block – Second / Third Floor Classroom</span>
+                  </div>
+                  <div class="detail-row">
+                    <strong>Date &amp; Time:</strong>
+                    <span>9 Oct (9:30 AM) – 10 Oct 2026 (3:30 PM)</span>
+                  </div>
+                  <div class="detail-row">
+                    <strong>Environment:</strong>
+                    <span>High-Speed Wi-Fi, Dedicated Power Sockets, Mentor Desks</span>
+                  </div>
+                  <div class="detail-row">
+                    <strong>Registration Fee:</strong>
+                    <span><strong>₹150 per participant</strong></span>
+                  </div>
+                </div>
+
+                <div class="pass-preview-card">
+                  <h3 class="box-title">🎟️ Official Registration Portal</h3>
+                  <p>Register online via the official Google registration form to confirm your slot for ESPARTO 2026.</p>
+                  <div class="ticket-mini-visual">
+                    <div class="tmv-header">
+                      <span>GDGoC HITAM</span>
+                      <span class="tmv-year">2026</span>
+                    </div>
+                    <div class="tmv-title">ESPARTO PASS</div>
+                    <div class="tmv-qr-placeholder">
+                      <img src="assets/registration-qr.png" alt="Registration Link QR" class="ticket-qr-img" width="64" height="64" style="background:#fff; padding:3px; border-radius:6px; display:block; margin:0 auto 6px;">
+                      <div class="fake-code">ENTRY FEE: ₹150 • SCAN OR CLICK TO REGISTER</div>
+                    </div>
+                  </div>
+                  <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="btn btn-google-gradient btn-full">
+                    <span>Open Registration Link &rarr;</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Event Coordinators Brochure Box -->
+              <div class="brochure-coordinators-box">
+                <h4 class="table-title">Event Coordinators &amp; Contact</h4>
+                <div class="brochure-coord-grid">
+                  <div class="b-coord-sub">
+                    <strong class="b-coord-label"><span class="bullet-dot blue"></span> Student Coordinators</strong>
+                    <div class="b-coord-item">
+                      <span class="bc-name">Manik Manohar</span>
+                      <a href="tel:9100834381" class="bc-link">📞 9100834381</a>
+                      <a href="mailto:manikmanohar0@gmail.com" class="bc-link">✉️ manikmanohar0@gmail.com</a>
+                    </div>
+                    <div class="b-coord-item">
+                      <span class="bc-name">Dhanudeep</span>
+                      <a href="tel:7569956911" class="bc-link">📞 7569956911</a>
+                      <a href="mailto:kdhanudeep@gmail.com" class="bc-link">✉️ kdhanudeep@gmail.com</a>
+                    </div>
+                    <div class="b-coord-item">
+                      <span class="bc-name">Y Shamsmitha</span>
+                      <a href="tel:7396933363" class="bc-link">📞 7396933363</a>
+                      <a href="mailto:yshamsmitha@gmail.com" class="bc-link">✉️ yshamsmitha@gmail.com</a>
+                    </div>
+                  </div>
+
+                  <div class="b-coord-sub">
+                    <strong class="b-coord-label"><span class="bullet-dot yellow"></span> Faculty Coordinator</strong>
+                    <div class="b-coord-item">
+                      <span class="bc-name">D. Harikrishna</span>
+                      <a href="tel:+919490425130" class="bc-link">📞 +91 94904 25130</a>
+                      <a href="mailto:associatedean.mdp@hitam.org" class="bc-link">✉️ associatedean.mdp@hitam.org</a>
+                    </div>
+
+                    <strong class="b-coord-label" style="margin-top: 0.75rem;"><span class="bullet-dot green"></span> Chapter Email</strong>
+                    <div class="b-coord-item">
+                      <a href="mailto:gdgoncampus@hitam.org" class="bc-link email-highlight">✉️ gdgoncampus@hitam.org</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Community Tagline Banner -->
+              <div class="brochure-final-banner">
+                <div class="bfb-motto">THINK. BUILD. AUTOMATE.</div>
+                <div class="bfb-sub">Learn Agentic AI • Build Intelligent Agents • Solve Real Problems</div>
+              </div>
+            </div>
+
+            <div class="panel-footer-meta">
+              <button class="btn-text" id="p4-prev-btn">&larr; Prizes &amp; Why Join</button>
+              <span>ESPARTO 2026 • GDGoC HITAM</span>
+              <button class="btn-text" id="p4-next-btn">Back to Cover &rarr;</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN FULL-WEB EXPERIENCE (Active default or toggled)                      -->
+  <!-- ========================================================================= -->
+  <main class="main-content-flow" id="main-content-flow">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-container container">
+        
+        <!-- Left: Hero Messaging & CTA -->
+        <div class="hero-copy-col">
+          <div class="hero-badge-row">
+            <span class="gdg-pill-tag">
+              <span class="color-dot c-blue"></span>
+              <span class="color-dot c-red"></span>
+              <span class="color-dot c-yellow"></span>
+              <span class="color-dot c-green"></span>
+              GDGoC HITAM • TECHNICAL FEST 2026
+            </span>
+            <span class="live-pill">⚡ Registrations Open</span>
+          </div>
+
+          <h1 class="hero-main-title">
+            <span class="hero-title-accent">ESPARTO</span> 2026
+          </h1>
+          
+          <h2 class="hero-theme-title">
+            Agentic AI Workshop &amp; Hackathon
+          </h2>
+
+          <p class="hero-lead-text">
+            Immerse yourself in the forefront of Artificial Intelligence. A two-day premier technical symposium organized by <strong>Google Developer Groups on Campus – HITAM</strong> to master autonomous AI agents, tool invocation, and multi-step reasoning workflows.
+          </p>
+
+          <!-- Core Motto Box -->
+          <div class="motto-strip">
+            <div class="motto-block">
+              <span class="motto-word blue-text">THINK.</span>
+              <span class="motto-word red-text">BUILD.</span>
+              <span class="motto-word green-text">AUTOMATE.</span>
+            </div>
+            <div class="motto-desc">
+              Learn Agentic AI. Build Intelligent Agents. Solve Real Problems.
+            </div>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="btn btn-google-gradient btn-lg" id="hero-register-btn">
+              <span>Register for Event (₹150)</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#overview" class="btn btn-outline btn-lg" id="hero-explore-btn">
+              <span>Explore Event Details &darr;</span>
+            </a>
+          </div>
+
+          <!-- Live Event Countdown Clock -->
+          <div class="countdown-widget" id="countdown-widget">
+            <div class="cd-header">
+              <span class="cd-pulse"></span>
+              <span class="cd-title">Event Starts In (9 October 2026, 9:30 AM):</span>
+            </div>
+            <div class="cd-timer-grid">
+              <div class="cd-card">
+                <span class="cd-number" id="cd-days">00</span>
+                <span class="cd-label">Days</span>
+              </div>
+              <span class="cd-sep">:</span>
+              <div class="cd-card">
+                <span class="cd-number" id="cd-hours">00</span>
+                <span class="cd-label">Hours</span>
+              </div>
+              <span class="cd-sep">:</span>
+              <div class="cd-card">
+                <span class="cd-number" id="cd-minutes">00</span>
+                <span class="cd-label">Minutes</span>
+              </div>
+              <span class="cd-sep">:</span>
+              <div class="cd-card">
+                <span class="cd-number" id="cd-seconds">00</span>
+                <span class="cd-label">Seconds</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3D Holographic Brochure & Graphic Card -->
+        <div class="hero-visual-col">
+          <div class="hero-3d-card" id="hero-tilt-card">
+            <div class="card-glass-frame">
+              <div class="card-inner-graphic">
+                <img src="assets/agentic-ai-banner.jpg" alt="Agentic AI Workflow Architecture" class="hero-card-banner">
+                <div class="banner-gradient-overlay"></div>
+                
+                <!-- Floating Google Bracket Badge -->
+                <div class="floating-gdg-badge">
+                  <img src="assets/gdg-hitam-logo-transparent.png" alt="GDG Bracket Logo" class="badge-mini-logo">
+                  <div class="badge-text-meta">
+                    <span class="b-event">ESPARTO 2026</span>
+                    <span class="b-place">HITAM Hyderabad</span>
+                  </div>
+                </div>
+
+                <!-- Floating Cash Prize Chip -->
+                <div class="floating-prize-chip">
+                  <span class="chip-icon">🏆</span>
+                  <div class="chip-text">
+                    <span class="chip-label">Total Cash Prizes</span>
+                    <span class="chip-val">₹10,000/-</span>
+                  </div>
+                </div>
+
+                <!-- Floating Dates Chip -->
+                <div class="floating-date-chip">
+                  <span class="chip-icon">🗓️</span>
+                  <div class="chip-text">
+                    <span class="chip-val">Oct 9 – 10, 2026</span>
+                    <span class="chip-label">2-Day Event</span>
+                  </div>
+                </div>
+
+                <!-- Interactive Agentic Node Simulation Overlay -->
+                <div class="agent-nodes-overlay">
+                  <div class="agent-node node-1 pulse-blue">Input</div>
+                  <div class="agent-node-wire wire-1"></div>
+                  <div class="agent-node node-2 pulse-red">Reasoning</div>
+                  <div class="agent-node-wire wire-2"></div>
+                  <div class="agent-node node-3 pulse-yellow">Tools</div>
+                  <div class="agent-node-wire wire-3"></div>
+                  <div class="agent-node node-4 pulse-green">Execute</div>
+                </div>
+              </div>
+
+              <!-- Card Bottom Metadata Strip -->
+              <div class="card-bottom-info">
+                <div class="cbi-item">
+                  <span class="cbi-label">Format</span>
+                  <span class="cbi-val">Workshop + Hackathon</span>
+                </div>
+                <div class="cbi-divider"></div>
+                <div class="cbi-item">
+                  <span class="cbi-label">Fee</span>
+                  <span class="cbi-val">₹150 / Person</span>
+                </div>
+                <div class="cbi-divider"></div>
+                <div class="cbi-item">
+                  <span class="cbi-label">Venue</span>
+                  <span class="cbi-val">Activity Block</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-shadow-glow"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Metrics Bar -->
+      <div class="metrics-bar container">
+        <div class="metric-card" data-tilt>
+          <div class="metric-icon-box icon-blue">💡</div>
+          <div class="metric-info">
+            <span class="metric-num">Day 1</span>
+            <span class="metric-title">Agentic AI Workshop</span>
+            <span class="metric-sub">9:30 AM – 3:00 PM • Hands-on</span>
+          </div>
+        </div>
+        <div class="metric-card" data-tilt>
+          <div class="metric-icon-box icon-red">⚡</div>
+          <div class="metric-info">
+            <span class="metric-num">Day 2</span>
+            <span class="metric-title">Agentic Hackathon</span>
+            <span class="metric-sub">2–4 Members • Problem Solving</span>
+          </div>
+        </div>
+        <div class="metric-card" data-tilt>
+          <div class="metric-icon-box icon-yellow">💰</div>
+          <div class="metric-info">
+            <span class="metric-num">₹10,000</span>
+            <span class="metric-title">Total Prize Pool</span>
+            <span class="metric-sub">1st: ₹3K • 2nd: ₹2K • 3rd: ₹1K</span>
+          </div>
+        </div>
+        <div class="metric-card" data-tilt>
+          <div class="metric-icon-box icon-green">🎓</div>
+          <div class="metric-info">
+            <span class="metric-num">1:1 Mentoring</span>
+            <span class="metric-title">Guest Speaker / Mentor</span>
+            <span class="metric-sub">Direct practical feedback</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: EVENT OVERVIEW & AGENTIC AI PARADIGM -->
+    <section class="section overview-section" id="overview">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tagline">1. Event Overview</span>
+          <h2 class="section-title">The Dawn of <span class="text-gradient-google">Agentic Intelligence</span></h2>
+          <p class="section-description">
+            As part of <strong>Technical Fest 2026</strong>, Google Developer Groups on Campus – HITAM (GDGoC HITAM) is organizing a two-day technical event focused on Agentic Artificial Intelligence. Designed to equip students with both foundational understanding and real-world implementation capabilities.
+          </p>
+        </div>
+
+        <!-- 2-Day Structure Cards -->
+        <div class="structure-grid">
+          <div class="structure-card card-workshop" data-tilt>
+            <div class="structure-badge blue-badge">PHASE 1 • DAY 1</div>
+            <div class="structure-icon">🧠</div>
+            <h3 class="structure-title">Agentic AI Workshop</h3>
+            <p class="structure-text">
+              An interactive, hands-on session introducing students to the fundamentals of Agentic AI. Learn how modern AI agents reason, invoke tools, plan sequential steps, and execute tasks with minimal human intervention.
+            </p>
+            <ul class="structure-list">
+              <li><span class="check-dot"></span> Core Agent Architectures &amp; Loops</li>
+              <li><span class="check-dot"></span> Tool Usage &amp; Dynamic API Calling</li>
+              <li><span class="check-dot"></span> Multi-Agent Workflows &amp; Memory</li>
+              <li><span class="check-dot"></span> Release of Hackathon Problem Statement at 3:00 PM</li>
+            </ul>
+            <div class="structure-footer">
+              <span class="s-time">🗓️ 9 Oct 2026 | 9:30 AM – 3:00 PM</span>
+              <a href="#day1-workshop" class="s-link">Explore Workshop &rarr;</a>
+            </div>
+          </div>
+
+          <div class="structure-card card-hackathon" data-tilt>
+            <div class="structure-badge green-badge">PHASE 2 • DAY 2</div>
+            <div class="structure-icon">🚀</div>
+            <h3 class="structure-title">Agentic AI Hackathon</h3>
+            <p class="structure-text">
+              Transform workshop insights into production-grade functional agents! Form teams of 2 to 4 members to tackle an industry-grade problem statement and build intelligent autonomous solutions.
+            </p>
+            <ul class="structure-list">
+              <li><span class="check-dot"></span> 24-Hour Solution Sprint</li>
+              <li><span class="check-dot"></span> Mentorship by Guest AI Industry Mentors</li>
+              <li><span class="check-dot"></span> Live Prototype Evaluation &amp; Demos</li>
+              <li><span class="check-dot"></span> ₹10,000 Prize Pool &amp; Recognition Ceremony</li>
+            </ul>
+            <div class="structure-footer">
+              <span class="s-time">🗓️ 9 Oct (3 PM) – 10 Oct (3:30 PM)</span>
+              <a href="#day2-hackathon" class="s-link">Explore Hackathon &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conventional AI vs Agentic AI Interactive Infographic -->
+        <div class="agentic-breakdown-card">
+          <div class="abc-header">
+            <h3 class="abc-title">Why Agentic AI? The Paradigm Shift</h3>
+            <p class="abc-sub">Traditional chatbots simply answer prompts. Agentic AI plans, uses tools, takes action, and iterates to achieve complex goals.</p>
+          </div>
+          <div class="comparison-grid">
+            <div class="comp-col comp-traditional">
+              <div class="comp-tag">Conventional Generative AI</div>
+              <ul class="comp-list">
+                <li><span class="x-mark">✕</span> Single turn prompt-and-response</li>
+                <li><span class="x-mark">✕</span> Cannot interact with external tools or databases</li>
+                <li><span class="x-mark">✕</span> Passive knowledge generation without action</li>
+                <li><span class="x-mark">✕</span> Requires continuous human supervision at every step</li>
+              </ul>
+            </div>
+            <div class="comp-vs">VS</div>
+            <div class="comp-col comp-agentic">
+              <div class="comp-tag active-tag">Agentic AI (What You Will Master)</div>
+              <ul class="comp-list">
+                <li><span class="c-check">✓</span> Autonomous multi-step goal planning &amp; reasoning</li>
+                <li><span class="c-check">✓</span> Uses external tools, APIs, web search &amp; code execution</li>
+                <li><span class="c-check">✓</span> Self-reflection, verification, and automated error-correction</li>
+                <li><span class="c-check">✓</span> Executes full complex workflows with minimal human oversight</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: DAY 1 - AGENTIC AI WORKSHOP -->
+    <section class="section workshop-section" id="day1-workshop">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tagline">2. Day 1 Interactive Session</span>
+          <h2 class="section-title">Day 1: <span class="text-blue">Agentic AI</span> Interactive Workshop</h2>
+          <p class="section-description">
+            A comprehensive, interactive hands-on workshop guiding you from raw concepts to building functional autonomous agents capable of performing multi-step workflows.
+          </p>
+        </div>
+
+        <div class="workshop-layout-grid">
+          
+          <!-- Left Column: Details & Key Focus Areas -->
+          <div class="workshop-details-col">
+            <div class="content-box">
+              <h3 class="box-heading">
+                <span class="indicator-icon blue-bg">📌</span>
+                Event Concept &amp; Objectives
+              </h3>
+              <p>
+                The Agentic AI Workshop introduces participants to how AI agents differ fundamentally from conventional AI models, demonstrating how agents can be designed to perform tasks with <strong>minimal human intervention</strong>.
+              </p>
+              <p>
+                You won't just sit and listen: you will write code, invoke tools, build reasoning loops, and deploy practical AI agents. The workshop concludes promptly at <strong>3:00 PM</strong>, immediately transitioning into the hackathon problem statement briefing!
+              </p>
+            </div>
+
+            <!-- 5 Key Focus Areas -->
+            <div class="focus-cards-wrapper">
+              <h3 class="box-heading">
+                <span class="indicator-icon yellow-bg">🎯</span>
+                5 Key Focus Areas
+              </h3>
+              <div class="focus-stack">
+                <div class="focus-item-card">
+                  <div class="focus-num">01</div>
+                  <div class="focus-item-content">
+                    <h4>Fundamentals of Artificial Intelligence &amp; Agentic AI</h4>
+                    <p>Understanding foundation models, tokenization, contextual reasoning, and the emergence of autonomous behaviors.</p>
+                  </div>
+                </div>
+                <div class="focus-item-card">
+                  <div class="focus-num">02</div>
+                  <div class="focus-item-content">
+                    <h4>Understanding AI Agents &amp; Agentic Workflows</h4>
+                    <p>Deconstructing agent topologies: Single-agent vs Multi-agent coordination, orchestration patterns, and state management.</p>
+                  </div>
+                </div>
+                <div class="focus-item-card">
+                  <div class="focus-num">03</div>
+                  <div class="focus-item-content">
+                    <h4>How AI Agents Perform Tasks</h4>
+                    <p>The core loop: Observation &rarr; Thought / Reasoning &rarr; Action Plan &rarr; Execution &rarr; Evaluation.</p>
+                  </div>
+                </div>
+                <div class="focus-item-card">
+                  <div class="focus-num">04</div>
+                  <div class="focus-item-content">
+                    <h4>Tool Usage &amp; Task Execution</h4>
+                    <p>Equipping agents with tools: API calls, database lookups, code execution, web scrapers, and dynamic schema parameters.</p>
+                  </div>
+                </div>
+                <div class="focus-item-card">
+                  <div class="focus-num">05</div>
+                  <div class="focus-item-content">
+                    <h4>Building Practical AI Agents</h4>
+                    <p>Hands-on lab where every participant develops, debugs, and runs a working agent ready for real-world tasks.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Workshop Particulars Spec Sheet -->
+          <div class="workshop-spec-col">
+            <div class="brochure-spec-sheet" data-tilt>
+              <div class="spec-header">
+                <span class="spec-badge">OFFICIAL SPEC SHEET</span>
+                <h3 class="spec-title">Workshop Particulars</h3>
+                <span class="spec-subtitle">Google Developer Groups on Campus – HITAM</span>
+              </div>
+
+              <div class="spec-table">
+                <div class="spec-row">
+                  <div class="spec-key">
+                    <span class="k-icon">📅</span> Date
+                  </div>
+                  <div class="spec-value"><strong>9 October 2026</strong></div>
+                </div>
+                <div class="spec-row">
+                  <div class="spec-key">
+                    <span class="k-icon">⏰</span> Duration
+                  </div>
+                  <div class="spec-value">9:30 AM to 3:00 PM</div>
+                </div>
+                <div class="spec-row">
+                  <div class="spec-key">
+                    <span class="k-icon">👥</span> Participation
+                  </div>
+                  <div class="spec-value">Individual registration (Teams formed for hackathon)</div>
+                </div>
+                <div class="spec-row highlight-row">
+                  <div class="spec-key">
+                    <span class="k-icon">🎟️</span> Registration Fee
+                  </div>
+                  <div class="spec-value">
+                    <span class="fee-badge">₹150 per participant</span>
+                  </div>
+                </div>
+                <div class="spec-row">
+                  <div class="spec-key">
+                    <span class="k-icon">📍</span> Venue
+                  </div>
+                  <div class="spec-value">Activity Block – Second/Third Floor Classroom</div>
+                </div>
+                <div class="spec-row">
+                  <div class="spec-key">
+                    <span class="k-icon">🎙️</span> Guest / Mentor
+                  </div>
+                  <div class="spec-value">One Guest Speaker / Mentor (Industry AI Expert)</div>
+                </div>
+                <div class="spec-row">
+                  <div class="spec-key">
+                    <span class="k-icon">💻</span> Mode
+                  </div>
+                  <div class="spec-value">Interactive &amp; Hands-on Coding</div>
+                </div>
+              </div>
+
+              <!-- Workshop Flow Timeline Graphic -->
+              <div class="workshop-day-timeline">
+                <div class="wdt-item">
+                  <span class="wdt-time">09:30 AM</span>
+                  <span class="wdt-dot"></span>
+                  <span class="wdt-label">Welcome &amp; Agentic AI Foundations</span>
+                </div>
+                <div class="wdt-item">
+                  <span class="wdt-time">11:00 AM</span>
+                  <span class="wdt-dot"></span>
+                  <span class="wdt-label">Tool Integration &amp; Function Calling Hands-on</span>
+                </div>
+                <div class="wdt-item">
+                  <span class="wdt-time">01:00 PM</span>
+                  <span class="wdt-dot"></span>
+                  <span class="wdt-label">Lunch &amp; Interactive Agent Lab</span>
+                </div>
+                <div class="wdt-item">
+                  <span class="wdt-time">02:30 PM</span>
+                  <span class="wdt-dot"></span>
+                  <span class="wdt-label">Multi-Agent Workflows &amp; Best Practices</span>
+                </div>
+                <div class="wdt-item highlight-item">
+                  <span class="wdt-time">03:00 PM</span>
+                  <span class="wdt-dot red"></span>
+                  <span class="wdt-label">Hackathon Problem Statement Release!</span>
+                </div>
+              </div>
+
+              <div class="spec-cta">
+                <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="btn btn-google-gradient btn-full">
+                  <span>Register for Workshop &amp; Hackathon (₹150) &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: DAY 2 - AGENTIC AI HACKATHON -->
+    <section class="section hackathon-section" id="day2-hackathon">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tagline">3. Day 2 Challenge &amp; Sprint</span>
+          <h2 class="section-title">Day 2: <span class="text-green">Agentic AI</span> Hackathon</h2>
+          <p class="section-description">
+            Put your skills to the ultimate test. Team up, receive an industry problem statement, build an intelligent Agentic AI solution, and pitch live to expert judges.
+          </p>
+        </div>
+
+        <!-- Hackathon Concept & Team Details -->
+        <div class="hackathon-summary-banner">
+          <div class="hsb-text">
+            <h3>The Hackathon Concept</h3>
+            <p>
+              The Agentic AI Hackathon gives participants an opportunity to apply the concepts and skills gained during the Day 1 workshop to solve a given problem statement using Agentic AI.
+            </p>
+            <p>
+              Participants form teams of <strong>2 to 4 members</strong> to design, build, and deploy an Agentic AI solution. Teams will have time until <strong>12:00 PM on 10 October 2026</strong> to finalize solutions before evaluation begins.
+            </p>
+          </div>
+          <div class="hsb-badges">
+            <div class="h-badge-card">
+              <span class="hb-icon">👥</span>
+              <span class="hb-title">Team Size</span>
+              <span class="hb-detail">2 – 4 Members</span>
+            </div>
+            <div class="h-badge-card">
+              <span class="hb-icon">⏱️</span>
+              <span class="hb-title">Build Window</span>
+              <span class="hb-detail">Day 1 (3 PM) to Day 2 (12 PM)</span>
+            </div>
+            <div class="h-badge-card">
+              <span class="hb-icon">🏆</span>
+              <span class="hb-title">Total Cash Prize</span>
+              <span class="hb-detail">₹10,000/-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hackathon Official Timeline -->
+        <div class="hackathon-timeline-section">
+          <h3 class="timeline-title text-center">Official Hackathon Timeline</h3>
+          <p class="timeline-sub text-center">Strict adherence to timings will ensure optimal evaluation and mentor guidance.</p>
+
+          <div class="timeline-track">
+            
+            <div class="timeline-card" data-tilt>
+              <div class="tc-step-num">Step 1</div>
+              <div class="tc-time-badge yellow-badge">3:00 PM – 4:00 PM (Day 1)</div>
+              <h4 class="tc-title">Problem Statement Release</h4>
+              <p class="tc-desc">
+                Hackathon problem statement is officially unveiled. Teams analyze challenges, define project scope, and initiate architecture planning with mentors.
+              </p>
+              <span class="tc-date">9 October 2026</span>
+            </div>
+
+            <div class="timeline-card" data-tilt>
+              <div class="tc-step-num">Step 2</div>
+              <div class="tc-time-badge blue-badge">3:00 PM (Day 1) – 12:00 PM (Day 2)</div>
+              <h4 class="tc-title">Development &amp; Solution Building</h4>
+              <p class="tc-desc">
+                Intensive coding, tool integration, and agent testing. Dedicated mentors rotate among teams to provide technical guidance and architecture reviews.
+              </p>
+              <span class="tc-date">Overnight Sprint</span>
+            </div>
+
+            <div class="timeline-card" data-tilt>
+              <div class="tc-step-num">Step 3</div>
+              <div class="tc-time-badge red-badge">12:00 PM, 10th October 2026</div>
+              <h4 class="tc-title">Final Submission Deadline</h4>
+              <p class="tc-desc">
+                All development freezes. Teams submit their GitHub repository, live agent deployment, and pitch deck. Late submissions are strictly locked.
+              </p>
+              <span class="tc-date">10 October 2026</span>
+            </div>
+
+            <div class="timeline-card" data-tilt>
+              <div class="tc-step-num">Step 4</div>
+              <div class="tc-time-badge green-badge">12:00 PM – 1:30 PM, 10th October</div>
+              <h4 class="tc-title">Evaluation &amp; Live Demos</h4>
+              <p class="tc-desc">
+                Teams demonstrate their working agents live before the panel of judges. Q&amp;A on reasoning robustness, tool reliability, and real-world viability.
+              </p>
+              <span class="tc-date">10 October 2026</span>
+            </div>
+
+            <div class="timeline-card grand-card" data-tilt>
+              <div class="tc-step-num">Step 5</div>
+              <div class="tc-time-badge gold-badge">2:30 PM – 3:30 PM, 10th October</div>
+              <h4 class="tc-title">Results &amp; Recognition Ceremony</h4>
+              <p class="tc-desc">
+                Grand culmination of ESPARTO 2026! Awarding the ₹10,000 prize pool, trophies to 1st, 2nd, and 3rd place teams, and certificates of excellence.
+              </p>
+              <span class="tc-date">10 October 2026</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 4 Hackathon Key Focus Areas -->
+        <div class="hackathon-focus-section">
+          <h3 class="focus-header-title text-center">Hackathon Evaluation Focus Areas</h3>
+          <div class="four-pillar-grid">
+            <div class="pillar-card pillar-blue" data-tilt>
+              <div class="pillar-icon">🤖</div>
+              <h4>Agentic AI Implementation</h4>
+              <p>How effectively does the solution utilize agentic patterns, sequential reasoning, self-reflection, and autonomy?</p>
+            </div>
+            <div class="pillar-card pillar-red" data-tilt>
+              <div class="pillar-icon">💡</div>
+              <h4>Problem-Solving</h4>
+              <p>Relevance, depth of insight, and practicality of the solution in addressing the assigned problem statement.</p>
+            </div>
+            <div class="pillar-card pillar-yellow" data-tilt>
+              <div class="pillar-icon">⚙️</div>
+              <h4>AI Agent Development</h4>
+              <p>Quality of tool integrations, error recovery, speed, architecture cleanliness, and code maintainability.</p>
+            </div>
+            <div class="pillar-card pillar-green" data-tilt>
+              <div class="pillar-icon">🚀</div>
+              <h4>Practical Application of AI</h4>
+              <p>Scalability, user interface usability, and tangible real-world value for end-users or enterprise environments.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: PRIZE POOL & EVENT AT A GLANCE -->
+    <section class="section prizes-section" id="prizes">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tagline">4. Event at a Glance</span>
+          <h2 class="section-title">Prize Pool of <span class="text-yellow">₹10,000/-</span></h2>
+          <p class="section-description">
+            Celebrating ingenuity, dedication, and technical mastery with substantial cash awards, trophies, and credentials from Google Developer Groups on Campus – HITAM.
+          </p>
+        </div>
+
+        <!-- Visual Prize Banner Image from Brain Assets -->
+        <div class="prize-banner-media">
+          <img src="assets/hackathon-prizes.jpg" alt="ESPARTO 2026 Prize Podium with Google Colors" class="prize-img-fluid">
+          <div class="prize-img-overlay">
+            <div class="pio-tag">ESPARTO 2026 AWARDS</div>
+            <h3>₹10,000 Total Prize Pool</h3>
+            <p>1st Place ₹3,000 • 2nd Place ₹2,000 • 3rd Place ₹1,000</p>
+          </div>
+        </div>
+
+        <!-- 3D Prize Podium -->
+        <div class="podium-container">
+          
+          <!-- 2nd Place Podium -->
+          <div class="podium-col col-silver" data-tilt>
+            <div class="podium-trophy silver-glow">🥈</div>
+            <div class="podium-badge">2nd Place</div>
+            <div class="podium-amount">₹2,000</div>
+            <p class="podium-desc">Runner-Up Cash Prize + Official Certificate of Excellence</p>
+            <div class="podium-pedestal p-silver">
+              <span class="pedestal-rank">2</span>
+            </div>
+          </div>
+
+          <!-- 1st Place Podium (Winner - Tallest) -->
+          <div class="podium-col col-gold" data-tilt>
+            <div class="winner-crown">👑 CHAMPION</div>
+            <div class="podium-trophy gold-glow">🥇</div>
+            <div class="podium-badge champion-badge">1st Place Winner</div>
+            <div class="podium-amount text-gold">₹3,000</div>
+            <p class="podium-desc">Grand Winner Cash Prize + Winner Trophy + GDGoC Mentorship</p>
+            <div class="podium-pedestal p-gold">
+              <span class="pedestal-rank">1</span>
+            </div>
+          </div>
+
+          <!-- 3rd Place Podium -->
+          <div class="podium-col col-bronze" data-tilt>
+            <div class="podium-trophy bronze-glow">🥉</div>
+            <div class="podium-badge">3rd Place</div>
+            <div class="podium-amount">₹1,000</div>
+            <p class="podium-desc">2nd Runner-Up Cash Prize + Official Certificate of Merit</p>
+            <div class="podium-pedestal p-bronze">
+              <span class="pedestal-rank">3</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Additional Perks & Certificates -->
+        <div class="additional-perks-row">
+          <div class="perk-card">
+            <span class="pk-icon">📜</span>
+            <strong>Official Participation Certificate</strong>
+            <p>Every attendee receives a verified GDGoC HITAM digital certificate for their professional portfolio.</p>
+          </div>
+          <div class="perk-card">
+            <span class="pk-icon">🎁</span>
+            <strong>GDGoC Swag &amp; Goodies</strong>
+            <p>Stickers, developer cheatsheets, and special mentions for exceptional architecture.</p>
+          </div>
+          <div class="perk-card">
+            <span class="pk-icon">🤝</span>
+            <strong>Direct Mentor Access</strong>
+            <p>1-on-1 feedback from guest AI mentors and senior community builders throughout the sprint.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: WHY PARTICIPATE? -->
+    <section class="section why-section" id="why-join">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tagline">6. Why Participate?</span>
+          <h2 class="section-title">Fuel Your Career with <span class="text-red">Hands-on Agentic AI</span></h2>
+          <p class="section-description">
+            Agentic AI is the highest-demand skill in modern software engineering. Here is what you gain by taking part in ESPARTO 2026.
+          </p>
+        </div>
+
+        <div class="reasons-grid">
+          <div class="reason-card" data-tilt>
+            <div class="rc-icon-wrapper blue-glow">
+              <span class="rc-num">01</span>
+            </div>
+            <h4 class="rc-title">Learn the Fundamentals of Agentic AI</h4>
+            <p class="rc-text">Master autonomous architectures, reasoning loops, state machines, and the underlying paradigms powering tomorrow's software.</p>
+          </div>
+
+          <div class="reason-card" data-tilt>
+            <div class="rc-icon-wrapper red-glow">
+              <span class="rc-num">02</span>
+            </div>
+            <h4 class="rc-title">Build &amp; Experiment with Functional Agents</h4>
+            <p class="rc-text">No dry slide presentations: write working agent scripts that query tools, handle errors, and execute workflows live.</p>
+          </div>
+
+          <div class="reason-card" data-tilt>
+            <div class="rc-icon-wrapper yellow-glow">
+              <span class="rc-num">03</span>
+            </div>
+            <h4 class="rc-title">Hands-on with Emerging AI Technologies</h4>
+            <p class="rc-text">Get acquainted with the modern AI agent toolchains, function-calling models, vector memories, and API integrations.</p>
+          </div>
+
+          <div class="reason-card" data-tilt>
+            <div class="rc-icon-wrapper green-glow">
+              <span class="rc-num">04</span>
+            </div>
+            <h4 class="rc-title">Apply Concepts to Real Problems</h4>
+            <p class="rc-text">Immediately bridge the gap between learning and implementation through a problem statement tackling real-world domain challenges.</p>
+          </div>
+
+          <div class="reason-card" data-tilt>
+            <div class="rc-icon-wrapper blue-glow">
+              <span class="rc-num">05</span>
+            </div>
+            <h4 class="rc-title">Collaborate in Teams of 2–4 Members</h4>
+            <p class="rc-text">Learn agile teamwork, pair programming, git collaboration, and collective problem solving with talented peers.</p>
+          </div>
+
+          <div class="reason-card" data-tilt>
+            <div class="rc-icon-wrapper red-glow">
+              <span class="rc-num">06</span>
+            </div>
+            <h4 class="rc-title">Build &amp; Present an AI Solution</h4>
+            <p class="rc-text">Sharpen your product pitch, demonstrate technical architecture to industry evaluators, and get constructive critique.</p>
+          </div>
+
+          <div class="reason-card" data-tilt>
+            <div class="rc-icon-wrapper yellow-glow">
+              <span class="rc-num">07</span>
+            </div>
+            <h4 class="rc-title">Compete for ₹10,000 Prize Pool</h4>
+            <p class="rc-text">Win significant cash prizes, podium trophies, and recognized credentials awarded at the official ceremony.</p>
+          </div>
+
+          <div class="reason-card" data-tilt>
+            <div class="rc-icon-wrapper green-glow">
+              <span class="rc-num">08</span>
+            </div>
+            <h4 class="rc-title">Showcase Technical Creativity</h4>
+            <p class="rc-text">Add an impressive project to your GitHub, build your resume portfolio, and stand out in tech campus placements.</p>
+          </div>
+        </div>
+
+        <!-- The Big Tagline Callout -->
+        <div class="motto-callout-card">
+          <div class="mcc-inner">
+            <span class="mcc-label">THE ESPARTO PHILOSOPHY</span>
+            <h3 class="mcc-motto">THINK. BUILD. AUTOMATE.</h3>
+            <p class="mcc-sub">Learn Agentic AI. Build Intelligent Agents. Solve Real Problems.</p>
+            <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="btn btn-google-gradient btn-lg">
+              <span>Register Now — Only ₹150</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: ORGANIZERS & VENUE -->
+    <section class="section organizers-section" id="venue">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tagline">5. Organizers &amp; Venue</span>
+          <h2 class="section-title">Organized by <span class="text-gradient-google">GDGoC HITAM</span></h2>
+          <p class="section-description">
+            Google Developer Groups on Campus – HITAM is a vibrant student developer community focused on creating opportunities for students to learn, experiment, and build using modern technologies.
+          </p>
+        </div>
+
+        <div class="organizers-venue-grid">
+          
+          <!-- Community Profile Card -->
+          <div class="community-profile-card" data-tilt>
+            <div class="cpc-header">
+              <img src="assets/gdg-hitam-logo-transparent.png" alt="GDGoC HITAM Logo" class="cpc-logo">
+              <div>
+                <h3>Google Developer Groups on Campus</h3>
+                <span class="cpc-sub">Hyderabad Institute of Technology and Management (HITAM)</span>
+              </div>
+            </div>
+
+            <p class="cpc-body">
+              The community conducts technical workshops, study jams, hackathons, and hands-on learning sessions that help students gain practical experience beyond the classroom.
+            </p>
+            <p class="cpc-body">
+              Through ESPARTO 2026, GDGoC HITAM aims to introduce students to the rapidly evolving field of Agentic AI and provide them with an opportunity to apply their learning through a practical hackathon.
+            </p>
+
+            <div class="cpc-stats-row">
+              <div class="cpc-stat">
+                <strong>Workshops</strong>
+                <span>Hands-on Sessions</span>
+              </div>
+              <div class="cpc-stat">
+                <strong>Study Jams</strong>
+                <span>Cloud &amp; AI</span>
+              </div>
+              <div class="cpc-stat">
+                <strong>Hackathons</strong>
+                <span>Real Problem Solving</span>
+              </div>
+            </div>
+
+            <div class="cpc-links">
+              <span class="pill-tag"><span class="pulse-dot"></span> Active Developer Chapter</span>
+            </div>
+          </div>
+
+          <!-- Venue & Logistics Card -->
+          <div class="venue-logistics-card" data-tilt>
+            <div class="vlc-header">
+              <div class="vlc-icon">📍</div>
+              <div>
+                <h3>Venue &amp; Location Details</h3>
+                <span class="vlc-sub">HITAM Campus, Hyderabad</span>
+              </div>
+            </div>
+
+            <div class="venue-info-list">
+              <div class="vi-item">
+                <span class="vi-label">Venue</span>
+                <span class="vi-val"><strong>Activity Block</strong> – Second / Third Floor Classroom</span>
+              </div>
+              <div class="vi-item">
+                <span class="vi-label">Institution</span>
+                <span class="vi-val">Hyderabad Institute of Technology and Management (HITAM)</span>
+              </div>
+              <div class="vi-item">
+                <span class="vi-label">Dates</span>
+                <span class="vi-val">9 &amp; 10 October 2026 (Two-Day Event)</span>
+              </div>
+              <div class="vi-item">
+                <span class="vi-label">Workshop Hours</span>
+                <span class="vi-val">9:30 AM to 3:00 PM (Day 1)</span>
+              </div>
+              <div class="vi-item">
+                <span class="vi-label">Hackathon Hours</span>
+                <span class="vi-val">3:00 PM (Day 1) – 3:30 PM (Day 2)</span>
+              </div>
+              <div class="vi-item">
+                <span class="vi-label">Registration Fee</span>
+                <span class="vi-val"><strong class="price-highlight">₹150 per participant</strong></span>
+              </div>
+            </div>
+
+            <div class="venue-tips-box">
+              <strong>💡 Participant Checklist:</strong>
+              <ul>
+                <li>Bring your laptop and charger (power strips provided).</li>
+                <li>Ensure Python / Node.js &amp; code editor are installed.</li>
+                <li>Digital Pass generated on this website ready on your phone.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: EVENT COORDINATORS & CONTACT -->
+    <section class="section coordinators-section" id="coordinators">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tagline">Event Coordinators &amp; Contact</span>
+          <h2 class="section-title">Get in Touch with Our <span class="text-gradient-google">Organizing Team</span></h2>
+          <p class="section-description">
+            Have questions regarding workshop curriculum, hackathon guidelines, team formation, or registration? Reach out directly to our student coordinators, faculty leads, or chapter email.
+          </p>
+        </div>
+
+        <div class="coordinators-main-grid">
+          
+          <!-- Student Coordinators Card -->
+          <div class="coord-category-card" data-tilt>
+            <div class="ccc-header">
+              <span class="ccc-icon icon-blue">👥</span>
+              <div>
+                <h3 class="ccc-title">Student Coordinators</h3>
+                <span class="ccc-subtitle">GDGoC HITAM Student Core Team</span>
+              </div>
+            </div>
+
+            <div class="person-cards-list">
+              <!-- Manik Manohar -->
+              <div class="person-card card-blue-border">
+                <div class="person-avatar-ring blue-ring">
+                  <span>MM</span>
+                </div>
+                <div class="person-info">
+                  <div class="pi-header">
+                    <h4 class="person-name">Manik Manohar</h4>
+                    <span class="coord-pill blue">Student Coordinator</span>
+                  </div>
+                  <div class="contact-links-row">
+                    <a href="tel:9100834381" class="contact-chip tel-chip" title="Call Manik Manohar">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                      <span>9100834381</span>
+                    </a>
+                    <a href="mailto:manikmanohar0@gmail.com" class="contact-chip mail-chip" title="Email Manik Manohar">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                      <span>manikmanohar0@gmail.com</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dhanudeep -->
+              <div class="person-card card-red-border">
+                <div class="person-avatar-ring red-ring">
+                  <span>D</span>
+                </div>
+                <div class="person-info">
+                  <div class="pi-header">
+                    <h4 class="person-name">Dhanudeep</h4>
+                    <span class="coord-pill red">Student Coordinator</span>
+                  </div>
+                  <div class="contact-links-row">
+                    <a href="tel:7569956911" class="contact-chip tel-chip" title="Call Dhanudeep">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                      <span>7569956911</span>
+                    </a>
+                    <a href="mailto:kdhanudeep@gmail.com" class="contact-chip mail-chip" title="Email Dhanudeep">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                      <span>kdhanudeep@gmail.com</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Y Shamsmitha -->
+              <div class="person-card card-green-border">
+                <div class="person-avatar-ring green-ring">
+                  <span>YS</span>
+                </div>
+                <div class="person-info">
+                  <div class="pi-header">
+                    <h4 class="person-name">Y Shamsmitha</h4>
+                    <span class="coord-pill green">Student Coordinator</span>
+                  </div>
+                  <div class="contact-links-row">
+                    <a href="tel:7396933363" class="contact-chip tel-chip" title="Call Y Shamsmitha">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                      <span>7396933363</span>
+                    </a>
+                    <a href="mailto:yshamsmitha@gmail.com" class="contact-chip mail-chip" title="Email Y Shamsmitha">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                      <span>yshamsmitha@gmail.com</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Faculty & Chapter Email Column -->
+          <div class="coord-side-column">
+            
+            <!-- Faculty Coordinator -->
+            <div class="coord-category-card card-faculty" data-tilt>
+              <div class="ccc-header">
+                <span class="ccc-icon icon-yellow">🎓</span>
+                <div>
+                  <h3 class="ccc-title">Faculty</h3>
+                  <span class="ccc-subtitle">Institutional Guidance &amp; Mentorship</span>
+                </div>
+              </div>
+              <div class="person-card card-yellow-border">
+                <div class="person-avatar-ring yellow-ring">
+                  <span>DH</span>
+                </div>
+                <div class="person-info">
+                  <div class="pi-header">
+                    <h4 class="person-name">D. Harikrishna</h4>
+                    <span class="coord-pill yellow">Faculty Lead</span>
+                  </div>
+                  <div class="contact-links-row">
+                    <a href="tel:+919490425130" class="contact-chip tel-chip" title="Call D. Harikrishna">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                      <span>+91 94904 25130</span>
+                    </a>
+                    <a href="mailto:associatedean.mdp@hitam.org" class="contact-chip mail-chip" title="Email D. Harikrishna">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                      <span>associatedean.mdp@hitam.org</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Official Chapter Email -->
+            <div class="coord-category-card card-chapter-email" data-tilt>
+              <div class="ccc-header">
+                <span class="ccc-icon icon-green">✉️</span>
+                <div>
+                  <h3 class="ccc-title">Chapter Email</h3>
+                  <span class="ccc-subtitle">General Inquiries &amp; Support</span>
+                </div>
+              </div>
+              <div class="chapter-email-body">
+                <p>For registrations, technical fest guidelines, or official collaboration:</p>
+                <a href="mailto:gdgoncampus@hitam.org" class="primary-email-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <span>gdgoncampus@hitam.org</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: INTERACTIVE FAQ ACCORDION -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tagline">Frequently Asked Questions</span>
+          <h2 class="section-title">Got Questions? <span class="text-yellow">We've Got Answers</span></h2>
+        </div>
+
+        <div class="faq-accordion-wrapper">
+          
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>What is the registration fee and how do I register?</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-content">
+              <p>The registration fee is <strong>₹150 per participant</strong>. Registrations are done individually. Click on any "Register Now" button on this website or visit the <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" style="color: var(--g-blue); font-weight: 700; text-decoration: underline;">Official Google Registration Form</a> to confirm your registration.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>Do I need a team before registering?</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-content">
+              <p>No! Registration is individual. For Day 1's workshop, everyone participates individually. For the Day 2 Hackathon, teams of <strong>2 to 4 members</strong> will be formed right during the workshop so you can collaborate with fellow participants.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>What prerequisites or experience are required?</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-content">
+              <p>Basic familiarity with programming (Python or JavaScript) and foundational concepts of Artificial Intelligence is helpful. Day 1's workshop begins with the core fundamentals of Agentic AI, so all enthusiastic learners are welcome!</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>What should I bring to the event?</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-content">
+              <p>Bring your laptop, charger, student college ID card, and your digital ESPARTO 2026 badge (which you can generate on this website). High-speed campus Wi-Fi and power points will be provided in the Activity Block.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">
+              <span>What are the prizes and recognition?</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-content">
+              <p>The total prize pool is <strong>₹10,000/-</strong> (1st Place: ₹3,000, 2nd Place: ₹2,000, 3rd Place: ₹1,000) along with official trophies, certificates, and community recognition. All participants receive verified certificates of participation.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: FINAL REGISTRATION CALL TO ACTION -->
+    <section class="section final-cta-section" id="register">
+      <div class="container">
+        <div class="cta-glass-card">
+          <div class="cta-content-wrapper">
+            <span class="pill-tag"><span class="pulse-dot"></span> LIMITED CAPACITY CLASSROOM SEATING</span>
+            <h2 class="cta-title">Ready to Build the Future of <span class="text-gradient-google">Agentic AI</span>?</h2>
+            <p class="cta-subtitle">
+              Secure your spot for ESPARTO 2026 at HITAM. Two days of cutting-edge technology, practical building, mentorship, and competitive hackathon action.
+            </p>
+            
+            <div class="cta-perks-row">
+              <span>✓ Hands-on Workshop</span>
+              <span>✓ 2-Day Hackathon</span>
+              <span>✓ ₹10,000 Prize Pool</span>
+              <span>✓ Verified GDG Certificate</span>
+              <span>✓ Mentorship by Industry Experts</span>
+            </div>
+
+            <div class="cta-btn-group">
+              <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="btn btn-google-gradient btn-xl">
+                <span>Register for Event (₹150)</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <div class="cta-qr-container">
+              <div class="cta-qr-box">
+                <img src="assets/registration-qr.png" alt="Official Registration QR Code" class="cta-qr-code" width="84" height="84">
+                <div class="cta-qr-info">
+                  <div class="cta-qr-title">📱 Scan to Register with Mobile</div>
+                  <p class="cta-qr-desc">Scan this QR code with any phone camera or Google Lens to instantly open the official registration form.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER                                                                    -->
+  <!-- ========================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-container container">
+      <div class="footer-main-grid">
+        
+        <!-- Left: GDG Branding & Tagline -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-header">
+            <img src="assets/gdg-hitam-logo-transparent.png" alt="GDGoC HITAM" class="footer-logo">
+            <div>
+              <div class="footer-title">Google Developer Groups on Campus</div>
+              <div class="footer-college">HITAM • Hyderabad Institute of Technology and Management</div>
+            </div>
+          </div>
+          <p class="footer-bio">
+            A student developer community focused on creating opportunities for students to learn, experiment, and build using modern technologies.
+          </p>
+          <div class="footer-motto-badge">
+            <strong>THINK. BUILD. AUTOMATE.</strong>
+            <span>Learn Agentic AI • Build Intelligent Agents • Solve Real Problems</span>
+          </div>
+        </div>
+
+        <!-- Middle: Quick Navigation Links -->
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Event Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#overview">Overview &amp; Concept</a></li>
+            <li><a href="#day1-workshop">Day 1 Agentic AI Workshop</a></li>
+            <li><a href="#day2-hackathon">Day 2 Agentic AI Hackathon</a></li>
+            <li><a href="#prizes">Prize Pool (₹10,000)</a></li>
+            <li><a href="#why-join">Why Participate</a></li>
+            <li><a href="#venue">Venue &amp; Logistics</a></li>
+            <li><a href="#coordinators">Event Coordinators &amp; Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Middle-Right: Coordinators Contact Column -->
+        <div class="footer-contact-col">
+          <h4 class="footer-col-title">Event Coordinators</h4>
+          <ul class="footer-info-list footer-coord-links">
+            <li>
+              <strong>Student Lead:</strong> Manik Manohar<br>
+              <a href="tel:9100834381">📞 9100834381</a> • <a href="mailto:manikmanohar0@gmail.com">✉️ Email</a>
+            </li>
+            <li>
+              <strong>Student Lead:</strong> Dhanudeep<br>
+              <a href="tel:7569956911">📞 7569956911</a> • <a href="mailto:kdhanudeep@gmail.com">✉️ Email</a>
+            </li>
+            <li>
+              <strong>Student Lead:</strong> Y Shamsmitha<br>
+              <a href="tel:7396933363">📞 7396933363</a> • <a href="mailto:yshamsmitha@gmail.com">✉️ Email</a>
+            </li>
+            <li>
+              <strong>Faculty:</strong> D. Harikrishna<br>
+              <a href="tel:+919490425130">📞 +91 94904 25130</a>
+            </li>
+            <li class="f-email-row">
+              <strong>Chapter Email:</strong><br>
+              <a href="mailto:gdgoncampus@hitam.org" class="footer-mail-link">✉️ gdgoncampus@hitam.org</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Event Summary Spec & Print CTA -->
+        <div class="footer-spec-col">
+          <h4 class="footer-col-title">Quick Event Info</h4>
+          <ul class="footer-info-list">
+            <li><strong>Event:</strong> ESPARTO 2026</li>
+            <li><strong>Dates:</strong> 9 &amp; 10 October 2026</li>
+            <li><strong>Venue:</strong> Activity Block – 2nd/3rd Floor, HITAM</li>
+            <li><strong>Registration Fee:</strong> ₹150 per participant</li>
+            <li><strong>Team Size:</strong> 2 – 4 Members (Hackathon)</li>
+          </ul>
+          <div class="footer-actions">
+            <a href="https://script.google.com/macros/s/AKfycbyWW19qSK95FeVO35V-aX5Lr2ySIE-ZMLLqem_y6bIFRXLcVEzVtU4qooHetePr09dbHQ/exec?event=agentic-ai-workshop-hackathon" target="_blank" rel="noopener noreferrer" class="btn btn-google-gradient btn-sm">
+              <span>Register Now (₹150) &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Bar with Google 4-Color Dots -->
+      <div class="footer-bottom-bar">
+        <div class="fbb-left">
+          <div class="google-color-dots">
+            <span class="dot d-blue"></span>
+            <span class="dot d-red"></span>
+            <span class="dot d-yellow"></span>
+            <span class="dot d-green"></span>
+          </div>
+          <span>ESPARTO 2026 | Google Developer Groups On-Campus HITAM</span>
+        </div>
+        <div class="fbb-right">
+          <span>Part of Technical Fest 2026</span>
+          <a href="#" class="back-to-top" id="back-to-top" title="Back to top">&uarr; Top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- DEDICATED PRINT BROCHURE TEMPLATE (Hidden on screen, rendered on Print)   -->
+  <!-- ========================================================================= -->
+  <section class="printable-brochure-sheet" id="printable-brochure-sheet">
+    
+    <!-- Page 1 of Printed Brochure -->
+    <div class="print-page print-page-1">
+      <div class="print-top-band">
+        <div class="print-band-left">
+          <img src="assets/gdg-hitam-logo.png" alt="GDGoC HITAM" class="print-logo">
+          <div>
+            <h1>ESPARTO 2026</h1>
+            <h2>Agentic AI Workshop and Hackathon</h2>
+            <p>Google Developer Groups On-Campus HITAM • Technical Fest 2026</p>
+          </div>
+        </div>
+        <div class="print-band-right">
+          <div class="print-fee-stamp">FEE: ₹150</div>
+          <div class="print-date">9 &amp; 10 October 2026</div>
+        </div>
+      </div>
+
+      <div class="print-motto-bar">
+        THINK. BUILD. AUTOMATE. — Learn Agentic AI. Build Intelligent Agents. Solve Real Problems.
+      </div>
+
+      <div class="print-two-col">
+        <div class="print-col">
+          <h3>1. Event Overview</h3>
+          <p>As part of the Technical Fest 2026, Google Developer Groups on Campus – HITAM (GDGoC HITAM) is organizing a two-day technical event focused on Agentic Artificial Intelligence.</p>
+          <p>The event is designed to provide students with both hands-on learning and practical problem-solving experience. Participants will first learn the fundamentals of Agentic AI through an interactive workshop and will then apply their knowledge to build an Agentic AI-based solution for a given problem statement.</p>
+
+          <h3>2. Day 1 – Agentic AI Interactive Workshop</h3>
+          <p><strong>Concept:</strong> Interactive, hands-on session introducing fundamentals of Agentic AI, demonstrating how AI agents perform tasks with minimal human intervention, reason through tasks, use tools, and execute multi-step workflows. Concludes at 3:00 PM with the hackathon problem statement release.</p>
+          <p><strong>Key Focus Areas:</strong></p>
+          <ul>
+            <li>Fundamentals of Artificial Intelligence and Agentic AI</li>
+            <li>Understanding AI Agents and Agentic Workflows</li>
+            <li>How AI agents perform tasks</li>
+            <li>Tool usage and task execution</li>
+            <li>Building practical AI agents</li>
+          </ul>
+        </div>
+
+        <div class="print-col">
+          <table class="print-table">
+            <thead>
+              <tr><th colspan="2">Event Particulars</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Date</strong></td><td>9 October 2026</td></tr>
+              <tr><td><strong>Duration</strong></td><td>9:30 AM to 3:00 PM</td></tr>
+              <tr><td><strong>Participation</strong></td><td>Individual registration; teams formed for hackathon</td></tr>
+              <tr><td><strong>Registration Fee</strong></td><td>₹150 per participant</td></tr>
+              <tr><td><strong>Venue</strong></td><td>Activity Block – Second/Third Floor Classroom</td></tr>
+              <tr><td><strong>Guest</strong></td><td>One Guest Speaker / Mentor</td></tr>
+              <tr><td><strong>Mode</strong></td><td>Interactive &amp; Hands-on</td></tr>
+            </tbody>
+          </table>
+
+          <h3>3. Day 2 – Agentic AI Hackathon</h3>
+          <p><strong>Concept:</strong> Teams of 2–4 members develop an Agentic AI solution addressing the assigned challenge until 12:00 PM on 10 October 2026.</p>
+          <table class="print-table">
+            <thead>
+              <tr><th>Activity</th><th>Time</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Problem Statement Release</td><td>3:00 PM - 4:00 PM (Day-1)</td></tr>
+              <tr><td>Development &amp; Solution Building</td><td>3:00 PM (Day-1) - 12:00 PM (Day-2)</td></tr>
+              <tr><td>Final Submission</td><td>12:00 PM, 10th October 2026</td></tr>
+              <tr><td>Evaluation</td><td>12:00 PM - 1:30 PM, 10th October 2026</td></tr>
+              <tr><td>Results &amp; Recognition</td><td>2:30 PM - 3:30 PM, 10th October 2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="print-footer">
+        <span>ESPARTO 2026 | Google Developers Group On-Campus HITAM</span>
+        <span>Page 1 of 2</span>
+      </div>
+    </div>
+
+    <!-- Page 2 of Printed Brochure -->
+    <div class="print-page print-page-2">
+      <div class="print-top-band print-band-compact">
+        <h2>ESPARTO 2026 — Prizes, Organizers &amp; Why Participate</h2>
+        <span>Google Developer Groups on Campus – HITAM</span>
+      </div>
+
+      <div class="print-two-col">
+        <div class="print-col">
+          <h3>4. Event at a Glance — Prize Pool</h3>
+          <p><strong>Total Prize Pool: ₹10,000/-</strong></p>
+          <table class="print-table">
+            <thead>
+              <tr><th>Position</th><th>Prize</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>1st Place</strong></td><td>₹3,000 + Champion Trophy</td></tr>
+              <tr><td><strong>2nd Place</strong></td><td>₹2,000 + Runner-Up Trophy</td></tr>
+              <tr><td><strong>3rd Place</strong></td><td>₹1,000 + 2nd Runner-Up Trophy</td></tr>
+            </tbody>
+          </table>
+
+          <h3>5. Organizers</h3>
+          <p><strong>Google Developer Groups on Campus – HITAM</strong> is a student developer community focused on creating opportunities for students to learn, experiment, and build using modern technologies.</p>
+          <p>The community conducts technical workshops, study jams, hackathons, and hands-on learning sessions that help students gain practical experience beyond the classroom.</p>
+
+          <h3>7. Event Coordinators</h3>
+          <p><strong>Student Coordinators:</strong></p>
+          <ul>
+            <li>Manik Manohar (9100834381, manikmanohar0@gmail.com)</li>
+            <li>Dhanudeep (7569956911, kdhanudeep@gmail.com)</li>
+            <li>Y Shamsmitha (7396933363, yshamsmitha@gmail.com)</li>
+          </ul>
+          <p><strong>Faculty Coordinator:</strong><br>D. Harikrishna (+91 94904 25130, associatedean.mdp@hitam.org)</p>
+          <p><strong>Chapter Email:</strong> gdgoncampus@hitam.org</p>
+        </div>
+
+        <div class="print-col">
+          <h3>6. Why Participate?</h3>
+          <p>Participants will get an opportunity to:</p>
+          <ul>
+            <li>Learn the fundamentals of Agentic AI.</li>
+            <li>Build and experiment with functional AI agents.</li>
+            <li>Gain hands-on experience with emerging AI technologies.</li>
+            <li>Apply workshop concepts to a real problem statement.</li>
+            <li>Work collaboratively in teams of 2–4 members.</li>
+            <li>Build and present an AI-based solution.</li>
+            <li>Compete for a total prize pool of ₹10,000.</li>
+            <li>Showcase their technical skills and creativity.</li>
+          </ul>
+
+          <div class="print-qr-card">
+            <h4>Scan to Visit Event Portal &amp; Register</h4>
+            <div class="print-qr-placeholder">
+              <img src="assets/registration-qr.png" alt="Official Registration QR Code" class="print-qr-img" width="100" height="100">
+            </div>
+            <p><strong>Registration Fee: ₹150 per participant</strong></p>
+            <p>Venue: Activity Block – 2nd/3rd Floor, HITAM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="print-footer">
+        <span>THINK. BUILD. AUTOMATE. | ESPARTO 2026 | GDGoC HITAM</span>
+        <span>Page 2 of 2</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Notification Toast -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite"></div>
+
+  <!-- Main JavaScript Logic -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
