@@ -497,57 +497,126 @@ body.theme-light .site-header {
   color: #fff;
 }
 
+/* Adaptive Register Button Text Helper */
+.nav-reg-text-short {
+  display: none;
+}
+
+@media (max-width: 580px) {
+  .nav-reg-text-full {
+    display: none;
+  }
+  .nav-reg-text-short {
+    display: inline;
+  }
+}
+
 /* Mobile Hamburger */
 .mobile-menu-toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
-  width: 32px;
-  height: 32px;
   justify-content: center;
   align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  padding: 8px;
+  transition: var(--transition);
+  position: relative;
+  z-index: 910;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--g-blue);
 }
 
 .mobile-menu-toggle .bar {
-  width: 22px;
+  width: 20px;
   height: 2px;
   background-color: var(--text-primary);
-  transition: var(--transition);
+  border-radius: 2px;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transform-origin: center;
+}
+
+/* Smooth Animated 'X' on Active Toggle */
+.mobile-menu-toggle.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.mobile-menu-toggle.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Mobile Drawer */
 .mobile-drawer {
-  display: none;
+  display: flex;
   flex-direction: column;
-  background: var(--bg-surface);
+  background: rgba(17, 23, 38, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-medium);
-  padding: 1.25rem 1.5rem;
-  gap: 1rem;
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, transform 0.25s ease, padding 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-light .mobile-drawer {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 .mobile-drawer.open {
-  display: flex;
+  max-height: calc(100vh - 72px);
+  overflow-y: auto;
+  opacity: 1;
+  transform: translateY(0);
+  padding: 1.25rem 1.5rem 1.75rem;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-nav-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 0.4rem;
 }
 
 .mobile-nav-link {
-  font-size: 1.05rem;
+  display: block;
+  padding: 0.65rem 0.85rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+  background: rgba(66, 133, 244, 0.12);
+  color: var(--g-blue);
+  transform: translateX(4px);
 }
 
 .mobile-drawer-footer {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  padding-top: 0.75rem;
+  padding-top: 1rem;
+  margin-top: 0.5rem;
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -3825,127 +3894,7 @@ body.theme-light .site-footer {
 }
 
 /* --------------------------------------------------------------------------
-   20. RESPONSIVE MEDIA QUERIES
-   -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-  
-  .hero-copy-col {
-    max-width: 100%;
-  }
-
-  .metrics-bar {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .four-pillar-grid,
-  .reasons-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .timeline-track {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-main-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .cover-highlights-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .modal-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .badge-preview-column {
-    margin-top: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .main-nav {
-    display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: flex;
-  }
-
-  .hero-main-title {
-    font-size: 2.8rem;
-  }
-
-  .hero-theme-title {
-    font-size: 1.3rem;
-  }
-
-  .structure-grid,
-  .workshop-layout-grid,
-  .hackathon-summary-banner,
-  .organizers-venue-grid,
-  .comparison-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .comp-vs {
-    justify-self: center;
-  }
-
-  .podium-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .col-gold { order: 1; }
-  .col-silver { order: 2; }
-  .col-bronze { order: 3; }
-
-  .podium-pedestal {
-    height: 50px !important;
-  }
-
-  .additional-perks-row {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline-track {
-    grid-template-columns: 1fr;
-  }
-
-  .panel-inner {
-    padding: 1.5rem;
-  }
-
-  .brochure-prizes-showcase,
-  .venue-split-grid,
-  .focus-bullet-list,
-  .why-grid-2col,
-  .four-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cd-timer-grid {
-    gap: 0.35rem;
-  }
-
-  .cd-card {
-    min-width: 50px;
-    padding: 0.4rem 0.5rem;
-  }
-
-  .cd-number {
-    font-size: 1.25rem;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   21. EVENT COORDINATORS & CONTACT STYLES
+   20. EVENT COORDINATORS & CONTACT STYLES
    -------------------------------------------------------------------------- */
 .coordinators-section {
   position: relative;
@@ -4226,19 +4175,1034 @@ body.theme-light .site-footer {
   color: #38bdf8 !important;
 }
 
+/* --------------------------------------------------------------------------
+   21. UNIVERSAL RESPONSIVE FOUNDATION & MOBILE STYLES
+   -------------------------------------------------------------------------- */
+
+/* In-Page Smooth Scroll Margin */
+section[id] {
+  scroll-margin-top: 85px;
+}
+
+/* Prevent unwanted Safari input zoom on iOS devices */
+input, select, textarea {
+  font-size: 16px;
+}
+
+/* Safe touch area optimizations */
+a, button, .contact-chip, .reader-tab, .reader-arrow, .faq-trigger {
+  touch-action: manipulation;
+}
+
+/* Mobile Floating Quick Action Bar Base Styles */
+.mobile-floating-bar {
+  display: none;
+}
+
+/* ==========================================================================
+   BREAKPOINT 1: Laptops & Tablets Landscape (max-width: 1024px)
+   ========================================================================== */
 @media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .hero-copy-col {
+    max-width: 100%;
+  }
+
+  .hero-visual-col {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .metrics-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+    margin-top: 2.75rem;
+  }
+
+  .four-pillar-grid,
+  .reasons-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .timeline-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+  }
+
+  .footer-main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .cover-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .coordinators-main-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .badge-preview-column {
+    margin-top: 1.5rem;
   }
 }
 
+/* Between 769px and 992px: ensure header nav links don't crowd */
+@media (max-width: 992px) {
+  .nav-list {
+    gap: 0.85rem;
+  }
+
+  .nav-item {
+    font-size: 0.82rem;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 2: Tablets Portrait & Smart Phones (max-width: 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
+  /* Navigation & Header */
+  .main-nav {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .site-header {
+    top: 0;
+  }
+
+  section[id] {
+    scroll-margin-top: 68px;
+  }
+
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Announcement Banner */
+  .announcement-banner {
+    padding: 0.6rem 0;
+  }
+
+  .banner-inner {
+    justify-content: center;
+    text-align: center;
+    gap: 0.65rem;
+  }
+
+  .banner-text {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .banner-cta {
+    font-size: 0.82rem;
+  }
+
+  /* Section Spacing & Headings */
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section-title {
+    font-size: clamp(1.85rem, 6.5vw, 2.35rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2.3rem, 8.5vw, 3.2rem);
+  }
+
+  .hero-theme-title {
+    font-size: clamp(1.15rem, 4.2vw, 1.45rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-lead-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1.4rem;
+  }
+
+  .motto-strip {
+    padding: 0.75rem 1.1rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .motto-block {
+    font-size: clamp(0.95rem, 3.2vw, 1.15rem);
+    flex-wrap: wrap;
+  }
+
+  .motto-desc {
+    font-size: 0.82rem;
+  }
+
+  .hero-cta-group {
+    gap: 0.75rem;
+    margin-bottom: 1.8rem;
+  }
+
+  /* Countdown Widget */
+  .countdown-widget {
+    max-width: 100%;
+    padding: 0.9rem 1rem;
+  }
+
+  .cd-header {
+    font-size: 0.78rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .cd-timer-grid {
+    gap: 0.25rem;
+  }
+
+  .cd-card {
+    flex: 1;
+    min-width: 0;
+    padding: 0.45rem 0.25rem;
+    text-align: center;
+  }
+
+  .cd-number {
+    font-size: clamp(1.2rem, 4.5vw, 1.55rem);
+  }
+
+  .cd-label {
+    font-size: clamp(0.55rem, 2vw, 0.68rem);
+  }
+
+  .cd-sep {
+    font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+    padding: 0 0.1rem;
+  }
+
+  /* Hero 3D Card */
+  .hero-3d-card {
+    max-width: 100%;
+  }
+
+  .card-inner-graphic {
+    aspect-ratio: 16 / 10;
+  }
+
+  .agent-nodes-overlay {
+    display: none; /* Hide dense node diagram on mobile so the hero visual is clean and fast */
+  }
+
+  .floating-gdg-badge {
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .badge-mini-logo {
+    width: 20px;
+  }
+
+  .b-event {
+    font-size: 0.7rem;
+  }
+
+  .b-place {
+    font-size: 0.6rem;
+  }
+
+  .floating-prize-chip {
+    bottom: 2.75rem;
+    right: 0.75rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .floating-prize-chip .chip-val {
+    font-size: 0.85rem;
+  }
+
+  .floating-prize-chip .chip-label {
+    font-size: 0.62rem;
+  }
+
+  .floating-date-chip {
+    bottom: 0.65rem;
+    left: 0.75rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .floating-date-chip .chip-val {
+    font-size: 0.75rem;
+  }
+
+  .floating-date-chip .chip-label {
+    font-size: 0.6rem;
+  }
+
+  .card-bottom-info {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .cbi-label {
+    font-size: 0.65rem;
+  }
+
+  .cbi-val {
+    font-size: 0.78rem;
+  }
+
+  /* Structure Grid & Comparison Matrix */
+  .structure-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .structure-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .structure-title {
+    font-size: 1.4rem;
+  }
+
+  .agentic-breakdown-card {
+    padding: 1.5rem 1.15rem;
+  }
+
+  .abc-title {
+    font-size: 1.3rem;
+  }
+
+  .abc-sub {
+    font-size: 0.85rem;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .comp-vs {
+    justify-self: center;
+    margin: 0.35rem 0;
+  }
+
+  .comp-col {
+    padding: 1.2rem;
+  }
+
+  /* Workshop Layout & Spec Sheet */
+  .workshop-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .content-box {
+    padding: 1.5rem 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .box-heading {
+    font-size: 1.2rem;
+  }
+
+  .focus-cards-wrapper {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .focus-item-card {
+    padding: 0.95rem;
+    gap: 1rem;
+  }
+
+  .brochure-spec-sheet {
+    position: static;
+    padding: 1.5rem 1.2rem;
+    top: auto;
+  }
+
+  .spec-title {
+    font-size: 1.3rem;
+  }
+
+  .spec-row {
+    font-size: 0.84rem;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .spec-val {
+    text-align: right;
+    max-width: 100%;
+  }
+
+  /* Hackathon Section */
+  .hackathon-summary-banner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hsb-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .timeline-title {
+    font-size: 1.45rem;
+  }
+
+  .timeline-sub {
+    font-size: 0.88rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .timeline-track {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .timeline-card {
+    padding: 1.25rem 1.1rem;
+  }
+
+  .hackathon-focus-section {
+    padding: 1.6rem 1.2rem;
+  }
+
+  .focus-header-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .four-pillar-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .pillar-card {
+    padding: 1.25rem 1.1rem;
+  }
+
+  /* Prize Pool & Podium */
+  .prize-banner-media {
+    margin-bottom: 2rem;
+  }
+
+  .prize-img-overlay {
+    padding: 1.25rem 1rem;
+  }
+
+  .prize-img-overlay h3 {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+
+  .prize-img-overlay p {
+    font-size: 0.85rem;
+  }
+
+  .podium-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    padding-top: 0.5rem;
+  }
+
+  .podium-col {
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.2rem 0;
+  }
+
+  .col-gold { order: 1; }
+  .col-silver { order: 2; }
+  .col-bronze { order: 3; }
+
+  .podium-trophy {
+    font-size: 2.5rem;
+  }
+
+  .podium-amount {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .podium-desc {
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  .podium-pedestal {
+    height: 44px !important;
+    border-radius: 0;
+  }
+
+  .pedestal-rank {
+    font-size: 1.6rem;
+  }
+
+  .additional-perks-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .perk-card {
+    padding: 1.2rem;
+  }
+
+  /* Why Participate & Reasons Grid */
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .reason-card {
+    padding: 1.35rem 1.2rem;
+  }
+
+  .motto-callout-card {
+    padding: 2.2rem 1.25rem;
+  }
+
+  .mcc-motto {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .mcc-sub {
+    font-size: 0.95rem;
+  }
+
+  /* Organizers & Venue */
+  .organizers-venue-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .community-profile-card,
+  .venue-logistics-card {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .cpc-header,
+  .vlc-header {
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+  }
+
+  .cpc-logo {
+    width: 44px;
+  }
+
+  .cpc-header h3,
+  .vlc-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .cpc-stats-row {
+    gap: 0.5rem;
+    padding: 0.75rem 0.5rem;
+    margin: 1.2rem 0;
+  }
+
+  .cpc-stat strong {
+    font-size: 0.95rem;
+  }
+
+  .cpc-stat span {
+    font-size: 0.7rem;
+  }
+
+  .vi-item {
+    font-size: 0.84rem;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .vi-val {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  /* Coordinators & Contacts */
+  .coord-category-card {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .ccc-header {
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .ccc-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.15rem;
+  }
+
+  .ccc-title {
+    font-size: 1.2rem;
+  }
+
+  .person-card {
+    padding: 1.1rem;
+    gap: 1rem;
+  }
+
+  .person-avatar-ring {
+    width: 46px;
+    height: 46px;
+    font-size: 1rem;
+  }
+
+  .person-name {
+    font-size: 1rem;
+  }
+
+  .contact-links-row {
+    flex-direction: column;
+    gap: 0.45rem;
+    width: 100%;
+  }
+
+  .contact-chip {
+    width: 100%;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.84rem;
+  }
+
+  .card-faculty,
+  .card-chapter-email {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .primary-email-btn {
+    padding: 0.75rem 1.2rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
   .brochure-coord-grid {
     grid-template-columns: 1fr;
   }
-  .contact-links-row {
+
+  /* FAQ Accordion */
+  .faq-trigger {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .faq-content {
+    padding: 0 1.25rem 1rem;
+    font-size: 0.88rem;
+  }
+
+  /* Final CTA Card */
+  .cta-glass-card {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .cta-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .cta-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .cta-perks-row {
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .cta-btn-group {
     flex-direction: column;
-    gap: 0.4rem;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .cta-btn-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cta-qr-box {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 1.2rem 1rem;
+    gap: 0.85rem;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .cta-qr-info {
+    align-items: center;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 3rem 0 calc(max(2rem, env(safe-area-inset-bottom, 2rem)) + 4rem);
+  }
+
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding-top: 1.5rem;
+  }
+
+  .fbb-left {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Mobile Floating Action Bar */
+  .mobile-floating-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    position: fixed;
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    left: 1rem;
+    right: 1rem;
+    max-width: 480px;
+    margin: 0 auto;
+    background: rgba(14, 20, 33, 0.94);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(66, 133, 244, 0.35);
+    border-radius: var(--radius-full);
+    padding: 0.5rem 0.65rem 0.5rem 1rem;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), 0 0 20px rgba(66, 133, 244, 0.25);
+    z-index: 850;
+    transform: translateY(120px);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  body.theme-light .mobile-floating-bar {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(66, 133, 244, 0.4);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15), 0 0 20px rgba(66, 133, 244, 0.15);
+  }
+
+  .mobile-floating-bar.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-float-reg-btn {
+    flex: 1;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(66, 133, 244, 0.35);
+  }
+
+  .mobile-float-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.65rem 0.95rem;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-subtle);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+
+  .mobile-float-chip:hover {
+    background: rgba(66, 133, 244, 0.15);
+    border-color: var(--g-blue);
+    color: #fff;
+  }
+
+  /* Brochure Flip Reader Mode on Mobile */
+  .brochure-reader-wrapper {
+    padding: 1.5rem 0 3rem;
+  }
+
+  .reader-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .reader-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+    padding: 0.3rem;
+  }
+
+  .reader-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reader-tab {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .reader-nav-arrows {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .brochure-book {
+    min-height: auto;
+  }
+
+  .panel-inner {
+    padding: 1.5rem 1.15rem;
+    min-height: auto;
+  }
+
+  .cover-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+
+  .cover-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .cover-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .cover-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cover-actions .btn {
+    width: 100%;
+  }
+
+  /* Modal Form on Mobile */
+  .modal-overlay {
+    padding: 1rem;
+    align-items: flex-end;
+  }
+
+  .modal-card {
+    padding: 1.5rem 1.2rem;
+    max-height: 92vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .modal-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .toast-notification {
+    bottom: max(75px, env(safe-area-inset-bottom, 75px));
+    left: 1rem;
+    right: 1rem;
+    text-align: center;
   }
 }
+
+/* ==========================================================================
+   BREAKPOINT 3: Compact Mobile Screens (max-width: 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Header Branding Adjustments */
+  .brand-title {
+    font-size: 0.9rem;
+  }
+
+  .brand-subtitle {
+    display: none; /* Hide subtitle on tiny screens so logo and action buttons have room */
+  }
+
+  .header-actions {
+    gap: 0.45rem;
+  }
+
+  .logo-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-logo-img {
+    width: 34px;
+  }
+
+  /* Full-width Hero CTA buttons */
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .hero-badge-row {
+    gap: 0.4rem;
+  }
+
+  .gdg-pill-tag,
+  .live-pill {
+    font-size: 0.72rem;
+    padding: 0.28rem 0.6rem;
+  }
+
+  /* Metrics 1-column */
+  .metrics-bar {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-top: 2rem;
+  }
+
+  .metric-card {
+    padding: 0.95rem 1.1rem;
+  }
+
+  /* Countdown widget compact padding */
+  .countdown-widget {
+    padding: 0.75rem 0.65rem;
+  }
+
+  .cd-card {
+    padding: 0.35rem 0.15rem;
+  }
+
+  .cd-number {
+    font-size: 1.25rem;
+  }
+
+  .cd-label {
+    font-size: 0.6rem;
+  }
+
+  /* Coordinators Person Card */
+  .person-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .person-info {
+    width: 100%;
+  }
+
+  .pi-header {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 4: Ultra-Compact Phones (max-width: 360px)
+   (e.g., iPhone SE 1st gen, Galaxy Fold cover screen)
+   ========================================================================== */
+@media (max-width: 360px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .hero-main-title {
+    font-size: 2.1rem;
+  }
+
+  .hero-theme-title {
+    font-size: 1.05rem;
+  }
+
+  .cd-number {
+    font-size: 1.1rem;
+  }
+
+  .cd-label {
+    font-size: 0.52rem;
+  }
+
+  .structure-card,
+  .content-box,
+  .coord-category-card,
+  .reason-card,
+  .pillar-card {
+    padding: 1.1rem 0.85rem;
+  }
+
+  .mobile-float-reg-btn {
+    font-size: 0.8rem;
+    padding: 0.55rem 0.85rem;
+  }
+
+  .mobile-float-chip {
+    font-size: 0.75rem;
+    padding: 0.55rem 0.75rem;
+  }
+}
+
 

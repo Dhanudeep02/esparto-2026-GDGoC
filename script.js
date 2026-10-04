@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPrintBrochure();
   initMobileMenu();
   initSmoothScroll();
+  initMobileFloatingBar();
 });
 
 /* ==========================================================================
@@ -411,6 +412,9 @@ function initAmbientCanvas() {
    7. 3D CARD TILT EFFECT
    ========================================================================== */
 function initTiltEffects() {
+  // Only apply 3D tilt effects on desktop/laptop devices with fine pointer and hover support
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
   const tiltElements = document.querySelectorAll('[data-tilt], #hero-tilt-card');
 
   tiltElements.forEach(el => {
@@ -553,7 +557,7 @@ function initPrintBrochure() {
 }
 
 /* ==========================================================================
-   11. MOBILE MENU TOGGLE
+   11. MOBILE MENU TOGGLE & ACCESSIBILITY
    ========================================================================== */
 function initMobileMenu() {
   const toggle = document.getElementById('mobile-menu-toggle');
@@ -561,17 +565,53 @@ function initMobileMenu() {
   const links = document.querySelectorAll('.mobile-nav-link');
 
   if (toggle && drawer) {
-    toggle.addEventListener('click', () => {
+    function closeMenu() {
+      drawer.classList.remove('open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    function openMenu() {
+      drawer.classList.add('open');
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = drawer.classList.contains('open');
-      drawer.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', !isOpen);
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
     links.forEach(l => {
       l.addEventListener('click', () => {
-        drawer.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
+        closeMenu();
       });
+    });
+
+    // Close when tapping outside drawer
+    document.addEventListener('click', (e) => {
+      if (!drawer.contains(e.target) && !toggle.contains(e.target) && drawer.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    // Close drawer when resized to desktop viewport
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992 && drawer.classList.contains('open')) {
+        closeMenu();
+      }
     });
   }
 }
@@ -601,7 +641,39 @@ function initSmoothScroll() {
         });
       }
     });
-  });
+  }, { passive: true });
+}
+
+/* ==========================================================================
+   13. MOBILE FLOATING ACTION BAR SCROLL VISIBILITY
+   ========================================================================== */
+function initMobileFloatingBar() {
+  const floatBar = document.getElementById('mobile-floating-bar');
+  const heroSection = document.getElementById('hero');
+  const finalCta = document.getElementById('register');
+  if (!floatBar) return;
+
+  function updateFloatVisibility() {
+    if (window.innerWidth > 768) {
+      floatBar.classList.remove('visible');
+      return;
+    }
+
+    const scrollY = window.pageYOffset;
+    const heroThreshold = heroSection ? (heroSection.offsetTop + heroSection.offsetHeight * 0.45) : 350;
+    const ctaTop = finalCta ? (finalCta.offsetTop - 200) : Infinity;
+
+    // Show after leaving hero fold and hide when reaching final CTA button
+    if (scrollY > heroThreshold && scrollY < ctaTop) {
+      floatBar.classList.add('visible');
+    } else {
+      floatBar.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', updateFloatVisibility, { passive: true });
+  window.addEventListener('resize', updateFloatVisibility, { passive: true });
+  updateFloatVisibility();
 }
 
 /* ==========================================================================
