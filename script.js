@@ -1,3 +1,4 @@
+
 /**
  * ESPARTO 2026 - Official Brochure & Conference Interaction Engine
  * Google Developer Groups on Campus - HITAM (GDGoC HITAM)
@@ -155,7 +156,7 @@ function initModeSwitcher() {
   const toggleLabel = document.getElementById('view-mode-label');
   const heroBrochureBtn = document.getElementById('hero-brochure-view-btn');
   const footerBrochureBtn = document.getElementById('footer-brochure-toggle');
-  
+
   const brochureSection = document.getElementById('brochure-reader-wrapper');
   const mainFlow = document.getElementById('main-content-flow');
 
