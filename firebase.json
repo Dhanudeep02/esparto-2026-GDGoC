@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "esparto-2026-gdgoc",
     "public": "dist",
     "ignore": [
       "firebase.json",
